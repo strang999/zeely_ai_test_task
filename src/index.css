@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Italian Plate No2 Expanded";
+  src: url("/fonts/Italian Plate No2 Expanded/Italian Plate No2 Expanded.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Italian Plate No2 Expanded";
+  src: url("/fonts/Italian Plate No2 Expanded/Italian Plate No2 Expanded Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Italian Plate No2 Expanded";
+  src: url("/fonts/Italian Plate No2 Expanded/Italian Plate No2 Expanded Demibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Italian Plate No2 Expanded";
+  src: url("/fonts/Italian Plate No2 Expanded/Italian Plate No2 Expanded Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-white text-zinc-900 antialiased;
+    font-family: "Italian Plate No2 Expanded", system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}
