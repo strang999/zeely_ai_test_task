@@ -70,6 +70,8 @@ src/features/avatar-background/
 - **Accessibility**: Full ARIA labels and keyboard navigation
 - **Mobile Responsive**: Sidebar adapts from 400px desktop to full-width mobile
 - **Disabled States**: Proper button states during operations
+- **Live Preview**: Selected background instantly displays on main avatar card
+- **Selectable Generated Image**: Click generated image to select it with visual feedback (black border)
 
 ### 3. **Production Optimizations**
 
