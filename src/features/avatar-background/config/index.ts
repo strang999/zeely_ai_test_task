@@ -3,6 +3,7 @@ export {
   GENERATION_CONFIG,
   INITIAL_PROMPT,
   API_CONFIG,
+  GENERATED_BACKGROUND_ID,
 } from "./constants";
 
 export { STYLE_PRESETS, INITIAL_BACKGROUNDS } from "./presets";

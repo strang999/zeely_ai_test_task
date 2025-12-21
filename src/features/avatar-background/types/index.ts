@@ -92,4 +92,6 @@ export interface GeneratedImageProps {
   readonly imageUrl: string | null;
   readonly isGenerating: boolean;
   readonly error: string | null;
+  readonly isSelected: boolean;
+  readonly onSelect: () => void;
 }

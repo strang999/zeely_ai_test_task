@@ -1,7 +1,13 @@
+export const GENERATED_BACKGROUND_ID = "generated";
+
 export const UI_LABELS = {
   SIDEBAR: {
     TITLE: "Change background",
     CLOSE_BUTTON_LABEL: "Close sidebar",
+  },
+  MAIN: {
+    AVATAR_ALT: "Avatar preview",
+    CHANGE_BUTTON: "Change background",
   },
   PROMPT: {
     SECTION_TITLE: "Background idea",

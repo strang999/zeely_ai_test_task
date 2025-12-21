@@ -1,3 +1,4 @@
+import { cn } from "../../../../shared/lib/cn";
 import { UI_LABELS } from "../../config";
 import type { GeneratedImageProps } from "../../types";
 
@@ -5,6 +6,8 @@ export function GeneratedImageSection({
   imageUrl,
   isGenerating,
   error,
+  isSelected,
+  onSelect,
 }: GeneratedImageProps) {
   if (!imageUrl && !isGenerating && !error) {
     return null;
@@ -34,13 +37,20 @@ export function GeneratedImageSection({
       )}
 
       {imageUrl && !isGenerating && (
-        <div className="overflow-hidden rounded-lg">
+        <button
+          type="button"
+          onClick={onSelect}
+          className={cn(
+            "w-full overflow-hidden rounded-lg transition-all focus-visible:outline-none",
+            isSelected && "rounded-xl border-2 border-black"
+          )}
+        >
           <img
             src={imageUrl}
             alt={UI_LABELS.BACKGROUNDS.GENERATED_ALT}
             className="aspect-[3/4] w-full object-cover"
           />
-        </div>
+        </button>
       )}
     </section>
   );

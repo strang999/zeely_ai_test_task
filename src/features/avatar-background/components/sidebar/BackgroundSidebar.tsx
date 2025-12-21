@@ -1,6 +1,6 @@
 import { Sheet, SheetContent, SheetDescription } from "../../../../shared/ui";
 import { useAvatarGenerator } from "../../hooks";
-import { UI_LABELS } from "../../config";
+import { UI_LABELS, GENERATED_BACKGROUND_ID } from "../../config";
 import { SidebarHeader } from "./SidebarHeader";
 import { PromptSection } from "../prompt";
 import { GenerateButton } from "../actions";
@@ -15,6 +15,7 @@ export function BackgroundSidebar() {
     isRegenerating,
     generatedImage,
     error,
+    selectedBackgroundId,
     canUndoPrompt,
     canRedoPrompt,
     isGenerateDisabled,
@@ -25,6 +26,7 @@ export function BackgroundSidebar() {
     handleRegenerate,
     handleUndo,
     handleRedo,
+    handleSelectBackground,
   } = useAvatarGenerator();
 
   return (
@@ -58,6 +60,8 @@ export function BackgroundSidebar() {
             imageUrl={generatedImage}
             isGenerating={isGenerating}
             error={error}
+            isSelected={selectedBackgroundId === GENERATED_BACKGROUND_ID}
+            onSelect={() => handleSelectBackground(GENERATED_BACKGROUND_ID)}
           />
           <BackgroundsGrid />
         </div>
