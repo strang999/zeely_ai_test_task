@@ -1,21 +1,16 @@
 import { Sheet, SheetContent, SheetDescription } from "../../../../shared/ui";
 import { useAvatarGenerator } from "../../hooks";
-import { UI_LABELS, GENERATED_BACKGROUND_ID } from "../../config";
+import { UI_LABELS } from "../../config";
 import { SidebarHeader } from "./SidebarHeader";
 import { PromptSection } from "../prompt";
 import { GenerateButton } from "../actions";
-import { GeneratedImageSection } from "../generated";
 import { BackgroundsGrid } from "../backgrounds";
 
 export function BackgroundSidebar() {
   const {
     isOpen,
     prompt,
-    isGenerating,
     isRegenerating,
-    generatedImage,
-    error,
-    selectedBackgroundId,
     canUndoPrompt,
     canRedoPrompt,
     isGenerateDisabled,
@@ -26,21 +21,22 @@ export function BackgroundSidebar() {
     handleRegenerate,
     handleUndo,
     handleRedo,
-    handleSelectBackground,
   } = useAvatarGenerator();
 
   return (
     <Sheet open={isOpen} onOpenChange={(open) => !open && handleCloseSidebar()}>
-      <SheetContent className="flex flex-col overflow-hidden">
-        <SidebarHeader
-          title={UI_LABELS.SIDEBAR.TITLE}
-          onClose={handleCloseSidebar}
-        />
+      <SheetContent className="flex w-full flex-col overflow-hidden p-0 sm:w-[400px]">
+        <div className="px-5 pt-8">
+          <SidebarHeader
+            title={UI_LABELS.SIDEBAR.TITLE}
+            onClose={handleCloseSidebar}
+          />
+        </div>
         <SheetDescription className="sr-only">
           Generate and select avatar backgrounds
         </SheetDescription>
 
-        <div className="flex flex-1 flex-col gap-3 overflow-y-auto pt-6">
+        <div className="flex flex-1 flex-col overflow-y-auto px-5 pt-[50px]">
           <PromptSection
             prompt={prompt}
             isRegenerating={isRegenerating}
@@ -51,19 +47,16 @@ export function BackgroundSidebar() {
             onUndo={handleUndo}
             onRedo={handleRedo}
           />
-          <GenerateButton
-            creditCost={creditCost}
-            isDisabled={isGenerateDisabled}
-            onGenerate={handleGenerate}
-          />
-          <GeneratedImageSection
-            imageUrl={generatedImage}
-            isGenerating={isGenerating}
-            error={error}
-            isSelected={selectedBackgroundId === GENERATED_BACKGROUND_ID}
-            onSelect={() => handleSelectBackground(GENERATED_BACKGROUND_ID)}
-          />
-          <BackgroundsGrid />
+          <div className="pt-6">
+            <GenerateButton
+              creditCost={creditCost}
+              isDisabled={isGenerateDisabled}
+              onGenerate={handleGenerate}
+            />
+          </div>
+          <div className="pt-[40px]">
+            <BackgroundsGrid />
+          </div>
         </div>
       </SheetContent>
     </Sheet>

@@ -1,1 +1,0 @@
-export { GeneratedImageSection } from "./GeneratedImageSection";

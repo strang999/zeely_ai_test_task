@@ -21,6 +21,7 @@ export const useBackgroundStore = create<BackgroundStore>((set, get) => ({
   isRegenerating: false,
   generatedImage: null,
   error: null,
+  generationProgress: 0,
 
   openSidebar: () => set({ isOpen: true }),
   closeSidebar: () => set({ isOpen: false }),
@@ -80,7 +81,19 @@ export const useBackgroundStore = create<BackgroundStore>((set, get) => ({
     const { prompt, selectedStyleId } = get();
     if (!prompt.trim()) return;
 
-    set({ isGenerating: true, error: null, generatedImage: null });
+    set({
+      isGenerating: true,
+      error: null,
+      generatedImage: null,
+      generationProgress: 0,
+    });
+
+    const progressInterval = setInterval(() => {
+      const currentProgress = get().generationProgress;
+      if (currentProgress < 90) {
+        set({ generationProgress: currentProgress + Math.random() * 15 });
+      }
+    }, 500);
 
     try {
       const selectedStyle = STYLE_PRESETS.find((s) => s.id === selectedStyleId);
@@ -90,15 +103,19 @@ export const useBackgroundStore = create<BackgroundStore>((set, get) => ({
 
       const loadedUrl = await preloadImage(imageUrl);
 
+      clearInterval(progressInterval);
       set({
         isGenerating: false,
         generatedImage: loadedUrl,
+        generationProgress: 100,
       });
     } catch (error) {
+      clearInterval(progressInterval);
       set({
         isGenerating: false,
         error:
           error instanceof Error ? error.message : "Failed to generate image",
+        generationProgress: 0,
       });
     }
   },

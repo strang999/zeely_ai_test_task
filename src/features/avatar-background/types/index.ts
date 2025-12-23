@@ -31,6 +31,7 @@ export interface GeneratorState {
   readonly isRegenerating: boolean;
   readonly generatedImage: string | null;
   readonly error: string | null;
+  readonly generationProgress: number;
 }
 
 export interface SelectionState {
@@ -86,12 +87,4 @@ export interface BackgroundCardProps {
   readonly background: BackgroundItem;
   readonly isSelected: boolean;
   readonly onSelect: (id: string) => void;
-}
-
-export interface GeneratedImageProps {
-  readonly imageUrl: string | null;
-  readonly isGenerating: boolean;
-  readonly error: string | null;
-  readonly isSelected: boolean;
-  readonly onSelect: () => void;
 }

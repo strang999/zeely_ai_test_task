@@ -12,10 +12,10 @@ export function BackgroundCard({
 
   if (isGenerating) {
     return (
-      <div className="relative aspect-[112/198] w-full overflow-hidden rounded-lg bg-black">
+      <div className="relative aspect-[112/198] w-full overflow-hidden rounded-[12px] bg-black">
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-          <div className="relative h-[65px] w-[65px]">
-            <svg className="h-full w-full -rotate-90" viewBox="0 0 36 36">
+          <div className="relative size-[65px]">
+            <svg className="size-full -rotate-90" viewBox="0 0 36 36">
               <circle
                 cx="18"
                 cy="18"
@@ -55,18 +55,18 @@ export function BackgroundCard({
       type="button"
       onClick={() => onSelect(id)}
       className={cn(
-        "relative aspect-[112/198] w-full overflow-hidden rounded-lg transition-all",
+        "relative aspect-[112/198] w-full overflow-hidden rounded-[12px] transition-all",
         "focus-visible:outline-none",
-        isSelected && "rounded-xl border-2 border-black"
+        isSelected && "rounded-[16px] border-2 border-black"
       )}
     >
       <img
         src={thumbnailUrl}
         alt={UI_LABELS.BACKGROUNDS.CARD_ALT}
-        className="h-full w-full object-cover"
+        className="size-full object-cover"
       />
       {isDefault && (
-        <span className="absolute left-2 top-2 rounded-sm border border-black/5 bg-white/100 px-1 py-1.5 text-[10px] font-bold uppercase leading-none text-gray-dark backdrop-blur-[7.5px]">
+        <span className="absolute left-2 top-2 rounded-[5px] border border-black/5 bg-white px-1 py-1.5 text-[10px] font-bold uppercase leading-none text-[#404040] backdrop-blur-[7.5px]">
           {UI_LABELS.BACKGROUNDS.DEFAULT_BADGE}
         </span>
       )}

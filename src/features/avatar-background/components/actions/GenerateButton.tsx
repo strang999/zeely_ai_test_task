@@ -8,20 +8,18 @@ export function GenerateButton({
   onGenerate,
 }: GenerateButtonProps) {
   return (
-    <div className="px-5">
-      <button
-        type="button"
-        onClick={onGenerate}
-        disabled={isDisabled}
-        aria-label={`${UI_LABELS.GENERATE.BUTTON_TEXT} ${creditCost} ${UI_LABELS.GENERATE.CREDIT_SUFFIX}`}
-        className="flex h-12 w-full items-center justify-center gap-2 rounded-pill bg-black text-[14px] font-semibold text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
-      >
-        <AiIconSmall className="h-[11px] w-[12px]" />
-        <span>
-          {UI_LABELS.GENERATE.BUTTON_TEXT} {creditCost}{" "}
-          {UI_LABELS.GENERATE.CREDIT_SUFFIX}
-        </span>
-      </button>
-    </div>
+    <button
+      type="button"
+      onClick={onGenerate}
+      disabled={isDisabled}
+      aria-label={`${UI_LABELS.GENERATE.BUTTON_TEXT} ${creditCost} ${UI_LABELS.GENERATE.CREDIT_SUFFIX}`}
+      className="flex h-[48px] w-full items-center justify-center gap-2 rounded-[100px] bg-black px-7 text-[14px] font-semibold leading-[0.8] text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+    >
+      <AiIconSmall className="h-[10.667px] w-[10.667px]" />
+      <span>
+        {UI_LABELS.GENERATE.BUTTON_TEXT} {creditCost}{" "}
+        {UI_LABELS.GENERATE.CREDIT_SUFFIX}
+      </span>
+    </button>
   );
 }

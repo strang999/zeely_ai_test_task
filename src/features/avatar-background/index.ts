@@ -10,5 +10,4 @@ export type {
   PromptSectionProps,
   GenerateButtonProps,
   BackgroundCardProps,
-  GeneratedImageProps,
 } from "./types";
